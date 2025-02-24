@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Culture &amp; History | Oslob</title>
+  <style>
+    :root {
+      --primary-color: #2E86AB;  /* Main brand color */
+      --accent-color:  #F7D684;  /* Accent color */
+      --text-color:    #333333;  /* Main text color */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    header {
+      background-color: var(--primary-color);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    .logo span {
+      color: var(--accent-color);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: var(--accent-color);
+    }
+    /* Highlight the current page if desired */
+    .nav-links li a.active {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 2px;
+    }
+
+    /* Hero Section with <img> + Overlay */
+    .hero {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(46, 134, 171, 0.6); /* Semi-transparent overlay */
+      padding: 2rem;
+      color: #fff;
+      border-radius: 8px;
+      max-width: 700px;
+      width: 90%;
+    }
+    .hero-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-overlay p {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    /* Main Content */
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    .section h2 {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .section p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    /* Local Cuisines Layout */
+    .cuisines-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .cuisine-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 1rem;
+    }
+    /* Ensure both cuisine images have the same size */
+    .cuisine-card img {
+      width: 100%;
+      height: 200px;         /* Fixed height for uniformity */
+      object-fit: cover;     /* Crop to fill the area */
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .cuisine-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .cuisine-card p {
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-color);
+      color: var(--accent-color);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: var(--accent-color);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #ffdb66;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-overlay h1 {
+        font-size: 1.5rem;
+      }
+      .section h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">EXPLORE <span>OSLOB</span></div>
+      <ul class="nav-links">
+        <li><a href="index.htm">Home</a></li>
+        <li><a href="discover.htm">Discover Oslob</a></li>
+        <li><a href="attractions.htm">Attractions</a></li>
+        <li><a href="culture.htm" class="active">Culture &amp; History</a></li>
+        <li><a href="contact.htm">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section with an Actual Image -->
+  <section class="hero">
+    <!-- Replace 'culture_hero.jpg' with your actual hero image file/path -->
+    <img src="church.JPG" alt="Oslob Culture & History">
+    <div class="hero-overlay">
+      <h1>Culture &amp; History of Oslob</h1>
+      <p>Explore Oslob’s vibrant past, heritage, and local traditions.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content">
+    <!-- History Section -->
+    <section class="section">
+      <h2>History of Oslob</h2>
+      <p>
+        Oslob, Cebu, was founded as a town in 1848 and has a rich history shaped by Spanish colonization.
+        The municipality is known for its heritage sites, including the Church of the Immaculate Conception
+        and the Cuartel Ruins—testaments to the Spanish presence in the region.
+      </p>
+      <p>
+        During the Spanish era, Oslob played a crucial role in coastal defense against raiders. The construction 
+        of watchtowers and stone walls helped protect the community. Over the centuries, 
+        Oslob thrived as a focal point of trade, agriculture, and commerce. Today, it is widely known for its 
+        whale shark tourism in Barangay Tan-awan, bridging historical landmarks with modern developments.
+      </p>
+    </section>
+
+    <!-- Festivals Section (No Images) -->
+    <section class="section">
+      <h2>Festivals</h2>
+      <p>
+        Oslob’s festivals reflect its rich cultural tapestry. The <strong>Sadsad Festival</strong> is celebrated 
+        in honor of the Immaculate Conception, featuring vibrant street dancing, music, and local delicacies. 
+        Colorful parades and cultural performances bring the community together in a lively display of faith 
+        and tradition.
+      </p>
+      <p>
+        Each festival is an opportunity for locals and visitors alike to immerse themselves in Oslob’s
+        heritage—celebrating the town’s patron saints, sharing in communal feasts, and reveling in the
+        warmth of Cebuano hospitality.
+      </p>
+    </section>
+
+    <!-- Local Cuisines Section -->
+    <section class="section">
+      <h2>Local Cuisines</h2>
+      <div class="cuisines-container">
+        <!-- Cuisine 1: Inun-unan -->
+        <div class="cuisine-card">
+          <img src="new inun.jpg" alt="Inun-unan">
+          <h3>Inun-unan</h3>
+          <p>A Cebuano fish dish simmered in vinegar, ginger, and spices.</p>
+        </div>
+        <!-- Cuisine 2: Larang na Tangigue -->
+        <div class="cuisine-card">
+          <img src="new larang.jpg" alt="Larang na Tangigue">
+          <h3>Larang na Tangigue</h3>
+          <p>A thick and flavorful fish soup with tangigue, peppers, tomatoes, and spices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tradition & Culture Section -->
+    <section class="section">
+      <h2>Tradition and Culture</h2>
+      <p>
+        The people of Oslob, known as Oslobanons, have a deep-rooted Catholic faith, evident in their
+        grand celebrations such as the Sadsad Festival in honor of the Immaculate Conception.
+        Various barangay fiestas feature religious processions and community feasts, reflecting
+        the town’s strong sense of heritage.
+      </p>
+      <p>
+        Oslob’s culture is also shaped by a respect for local traditions, as seen in the preservation
+        of historical sites like the Cuartel Ruins and Baluarte—remnants of Spanish colonial influence.
+        Oslobanons value hospitality, often welcoming visitors with warmth and generosity. Fishing
+        and farming remain essential to their way of life, while stewardship of whale shark tourism 
+        in Barangay Tan-awan has become a significant economic driver.
+      </p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.htm">Home</a>
+      <a href="discover.htm">Discover Oslob</a>
+      <a href="attractions.htm">Attractions</a>
+      <a href="culture.htm">Culture &amp; History</a>
+      <a href="contact.htm">Contact</a>
+    </div>
+    <p>© 2023 Oslob Tourism. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

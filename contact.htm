@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Oslob</title>
+  <style>
+    :root {
+      --primary-color: #2E86AB;  /* Main brand color */
+      --accent-color:  #F7D684;  /* Accent color */
+      --text-color:    #333333;  /* Main text color */
+      --background-color: #f4f4f4; /* Light background for better contrast */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      background-color: var(--background-color);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    header {
+      background-color: var(--primary-color);
+      padding: 1rem 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .logo {
+      font-size: 2rem; /* Larger logo size */
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .logo span {
+      color: var(--accent-color);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: var(--accent-color);
+    }
+    .nav-links li a.active {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(46, 134, 171, 0.6); /* Semi-transparent overlay */
+      padding: 2rem;
+      color: #fff;
+      border-radius: 8px;
+      max-width: 700px;
+      width: 90%;
+      text-align: center;
+    }
+    .hero-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-overlay p {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    /* Contact Info & Form Container */
+    .contact-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Contact Info Cards */
+    .info-card {
+      background-color: var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .info-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+    .info-card h3 {
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+    .info-card p {
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    .info-card a {
+      color: var(--text-color);
+      text-decoration: underline;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .contact-form h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .contact-form button {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+    .contact-form button:hover {
+      background-color: #1f5f78;
+    }
+
+    /* Taglines Section */
+    .taglines {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      background-color: #fff; /* White background for contrast */
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .taglines img {
+      max-width: 200px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-color);
+      color: var(--accent-color);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: var(--accent-color);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #ffdb66;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-overlay h1 {
+        font-size: 1.5rem;
+      }
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      .taglines img {
+        max-width: 150px; /* Smaller images for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">EXPLORE <span>OSLOB</span></div>
+      <ul class="nav-links">
+        <li><a href="index.htm">Home</a></li>
+        <li><a href="discover.htm">Discover Oslob</a></li>
+        <li><a href="attractions.htm">Attractions</a></li>
+        <li><a href="culture.htm">Culture &amp; History</a></li>
+        <li><a href="contact.htm" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="oslob hero.jpg" alt="Contact Oslob Tourism">
+    <div class="hero-overlay">
+      <h1>Get in Touch with Oslob</h1>
+      <p>We’re here to help you plan your visit and answer any questions.</p>
+    </div>
+  </section>
+
+  <!-- Contact Info & Form -->
+  <div class="contact-container">
+    <!-- Municipality Info Card -->
+    <div class="info-card">
+      <img src="new oslob seal.jpg" alt="Municipality of Oslob Seal">
+      <h3>Municipality of Oslob</h3>
+      <p>Poblacion, Oslob, Cebu</p>
+      <p>Phone: +63 32 481 9054</p>
+      <p>Email: <a href="mailto:municipalityofoslob@gmail.com">municipalityofoslob@gmail.com</a></p>
+    </div>
+
+    <!-- Department of Tourism Info Card -->
+    <div class="info-card">
+      <img src="dot.png" alt="Department of Tourism Seal">
+      <h3>Oslob Tourism Office</h3>
+      <p>+63 32 481 9075</p>
+      <p>Municipality of Oslob - Tourism Office</p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Taglines -->
+  <div class="taglines">
+    <img src="saying.png" alt="#OSLove - Fall in Love with Oslob">
+    <img src="new love.jpg" alt="Love The Philippines">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.htm">Home</a>
+      <a href="discover.htm">Discover Oslob</a>
+      <a href="attractions.htm">Attractions</a>
+      <a href="culture.htm">Culture &amp; History</a>
+      <a href="contact.htm">Contact</a>
+    </div>
+    <p>© 2023 Oslob Tourism. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

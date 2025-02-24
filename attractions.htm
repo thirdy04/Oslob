@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oslob Attractions</title>
+  <style>
+    :root {
+      --primary-color: #2E86AB;  /* Main brand color */
+      --accent-color:  #F7D684;  /* Accent color */
+      --text-color:    #333333;  /* Main text color */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    header {
+      background-color: var(--primary-color);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    .logo span {
+      color: var(--accent-color);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Hero Section */
+    .hero {
+  position: relative;
+  text-align: center;
+  overflow: hidden; /* Hides any overflow if needed */
+}
+
+.hero img {
+  width: 100%;
+  height: auto;    /* Keeps image proportional */
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(46, 134, 171, 0.6); /* Semi-transparent overlay using your primary color */
+  padding: 2rem;
+  color: #fff;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 90%;
+}
+
+.hero-overlay h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-overlay p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+
+    /* Taglines Section */
+    .taglines {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .taglines img {
+  width: 200px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 4px; /* Optional: Add some rounded corners */
+}
+
+    /* Attractions Container */
+    .attractions-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .attractions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .attraction-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+    .attraction-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .attraction-card-content {
+      padding: 1rem;
+    }
+    .attraction-card-content h2 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .attraction-card-content p {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    .learn-more-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      font-weight: bold;
+    }
+    .learn-more-btn:hover {
+      background-color: #1f5f78;
+    }
+
+    /* Modals (Pop-ups) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6); /* Semi-transparent background */
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 1rem;
+      max-width: 700px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px; 
+      right: 10px;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .modal-content p {
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    .modal-content ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .modal-content ul li {
+      margin-bottom: 0.5rem;
+    }
+    .modal-content hr {
+      margin: 1rem 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-color);
+      color: var(--accent-color);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: var(--accent-color);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #ffdb66;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        height: 40vh;
+      }
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+      .attractions-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-content {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Section -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">EXPLORE <span>OSLOB</span></div>
+      <ul class="nav-links">
+        <li><a href="index.htm">Home</a></li>
+        <li><a href="discover.htm">Discover Oslob</a></li>
+        <li><a href="attractions.htm" class="active">Attractions</a></li>
+        <li><a href="culture.htm">Culture &amp; History</a></li>
+        <li><a href="contact.htm">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ <!-- Hero Section -->
+<section class="hero">
+    <!-- Replace 'tuma.jpg' with your actual image path or URL -->
+    <img src="tuma.jpg" alt="Tumalog Falls" />
+    <div class="hero-overlay">
+      <h1>EXPLORE OSLOB'S TOP ATTRACTIONS</h1>
+      <p>Discover the natural wonders and rich heritage that Oslob has to offer.</p>
+    </div>
+  </section>
+  
+
+  <!-- Taglines -->
+  <div class="taglines">
+    <!-- Replace these with your actual tagline images -->
+    <img src="saying.png" alt="#OSLove - Fall in Love with Oslob">
+    <img src="new love.jpg" alt="Love The Philippines">
+  </div>
+
+  <!-- Attractions Section -->
+  <div class="attractions-container">
+    <div class="attractions-grid">
+
+      <!-- Attraction 1: Whale Shark Interaction -->
+      <div class="attraction-card">
+        <img src="shark.jpg" alt="Whale Shark Interaction">
+        <div class="attraction-card-content">
+          <h2>Whale Shark Interaction</h2>
+          <p>Swim with the gentle giants of the sea in an eco-friendly manner.</p>
+          <button class="learn-more-btn" onclick="openModal('modalWhaleShark')">Learn More</button>
+        </div>
+      </div>
+
+      <!-- Attraction 2: Tumalog Falls -->
+      <div class="attraction-card">
+        <img src="tumalog.jpg" alt="Tumalog Falls">
+        <div class="attraction-card-content">
+          <h2>Tumalog Falls</h2>
+          <p>A breathtaking cascade of water in a lush tropical setting.</p>
+          <button class="learn-more-btn" onclick="openModal('modalTumalog')">Learn More</button>
+        </div>
+      </div>
+
+      <!-- Attraction 3: Cuartel Ruins -->
+      <div class="attraction-card">
+        <img src="cuartel.jpg" alt="Cuartel Ruins">
+        <div class="attraction-card-content">
+          <h2>Cuartel Ruins</h2>
+          <p>Step back in time and explore Oslob’s colonial history.</p>
+          <button class="learn-more-btn" onclick="openModal('modalCuartel')">Learn More</button>
+        </div>
+      </div>
+
+      <!-- Attraction 4: Sumilon Island -->
+      <div class="attraction-card">
+        <img src="new sumil.jpg" alt="Sumilon Island">
+        <div class="attraction-card-content">
+          <h2>Sumilon Island</h2>
+          <p>A secluded paradise known for its pristine white sandbar.</p>
+          <button class="learn-more-btn" onclick="openModal('modalSumilon')">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals Section -->
+  <!-- Whale Shark Modal -->
+  <div id="modalWhaleShark" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modalWhaleShark')">&times;</button>
+      <h2>Whale Shark Interaction</h2>
+      <!-- Replace 'whaleshark_detail.jpg' with your real image -->
+      <img src="shark.jpg" alt="Whale Shark Interaction Detail">
+      <p>
+        Experience the awe-inspiring moment of swimming with whale sharks. These gentle giants are protected, 
+        so it’s crucial to follow the guidelines to ensure a safe and eco-friendly encounter.
+      </p>
+      <hr/>
+      <h3>Location</h3>
+      <p>Barangay Tan-awan, Oslob, Cebu</p>
+      <h3>Rules &amp; Guidelines</h3>
+      <ul>
+        <li>No touching or riding the whale sharks.</li>
+        <li>Keep a distance of at least 4 meters.</li>
+        <li>Do not use flash photography.</li>
+        <li>Wear only reef-safe sunscreen.</li>
+      </ul>
+      <h3>Gear &amp; Eco-Friendly Tips</h3>
+      <ul>
+        <li>Snorkel, mask, and life vest are usually provided on-site.</li>
+        <li>Avoid single-use plastics; bring a reusable water bottle.</li>
+        <li>Respect the marine life and do not feed them outside designated feeding schedules.</li>
+      </ul>
+      <!-- Add more details as desired -->
+    </div>
+  </div>
+
+  <!-- Tumalog Falls Modal -->
+  <div id="modalTumalog" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modalTumalog')">&times;</button>
+      <h2>Tumalog Falls</h2>
+      <img src="tumalog.jpg" alt="Tumalog Falls Detail">
+      <p>
+        Tumalog Falls is a picturesque waterfall nestled in a lush forest. Its unique curtain-like cascade and 
+        shallow basin make it perfect for a relaxing dip.
+      </p>
+      <hr/>
+      <h3>Location</h3>
+      <p>Barangay Luka, Oslob, Cebu</p>
+      <h3>Rules &amp; Guidelines</h3>
+      <ul>
+        <li>No littering. Use designated trash bins.</li>
+        <li>Swimming is allowed, but always follow local safety instructions.</li>
+        <li>Keep noise to a minimum to preserve the natural ambiance.</li>
+      </ul>
+      <h3>Gear &amp; Eco-Friendly Tips</h3>
+      <ul>
+        <li>Wear water shoes for better traction on slippery rocks.</li>
+        <li>Bring a reusable water bottle to stay hydrated.</li>
+        <li>Leave no trace: take all belongings and trash with you.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Cuartel Ruins Modal -->
+  <div id="modalCuartel" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modalCuartel')">&times;</button>
+      <h2>Cuartel Ruins</h2>
+      <img src="cuartel.jpg" alt="Cuartel Ruins Detail">
+      <p>
+        The Cuartel Ruins stand as a historical landmark from the Spanish colonial era. Its unfinished walls 
+        and coral-stone construction give a glimpse into Oslob’s storied past.
+      </p>
+      <hr/>
+      <h3>Location</h3>
+      <p>Fronting the Municipal Hall, Poblacion, Oslob, Cebu</p>
+      <h3>Rules &amp; Guidelines</h3>
+      <ul>
+        <li>Respect the site; do not climb on the walls.</li>
+        <li>Photography is allowed, but avoid damaging the structure.</li>
+      </ul>
+      <h3>Eco-Friendly Tips</h3>
+      <ul>
+        <li>Carry a reusable water bottle to minimize plastic waste.</li>
+        <li>Support local vendors to help sustain the community.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sumilon Island Modal -->
+  <div id="modalSumilon" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modalSumilon')">&times;</button>
+      <h2>Sumilon Island</h2>
+      <img src="new sumil.jpg" alt="Sumilon Island Detail">
+      <p>
+        Famous for its shifting white sandbar and crystal-clear waters, Sumilon Island is a haven for snorkeling, 
+        kayaking, and beach relaxation.
+      </p>
+      <hr/>
+      <h3>Location</h3>
+      <p>Off the coast of Oslob, Cebu (Boat transfer from mainland)</p>
+      <h3>Rules &amp; Guidelines</h3>
+      <ul>
+        <li>Book boat transfers with accredited operators.</li>
+        <li>No littering or collecting marine life (shells, corals, etc.).</li>
+      </ul>
+      <h3>Gear &amp; Eco-Friendly Tips</h3>
+      <ul>
+        <li>Bring reef-safe sunscreen to protect marine ecosystems.</li>
+        <li>Use reusable containers for food and drinks.</li>
+        <li>Respect marine life while snorkeling or diving.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.htm">Home</a>
+      <a href="discover.htm">Discover Oslob</a>
+      <a href="attractions.htm">Attractions</a>
+      <a href="culture.htm">Culture &amp; History</a>
+      <a href="contact.htm">Contact</a>
+    </div>
+    <p>© 2023 Oslob Tourism. All rights reserved.</p>
+  </footer>
+
+  <!-- Inline JavaScript for Modal Functionality -->
+  <script>
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+    // Close modal if user clicks anywhere outside the modal content
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll(".modal");
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

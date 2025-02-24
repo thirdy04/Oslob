@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover Oslob</title>
+  <style>
+    /* Define the same color variables used on the homepage */
+    :root {
+      --primary-color: #2E86AB;  /* Main brand color */
+      --accent-color:  #F7D684;  /* Accent color */
+      --text-color:    #333333;  /* Main text color */
+    }
+
+    /* General Reset & Body Defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: #fff;
+    }
+
+    /* Navigation (same style as homepage) */
+    header {
+      background-color: var(--primary-color);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    .logo span {
+      color: var(--accent-color);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: var(--accent-color);
+    }
+    /* Optional: highlight "Discover Oslob" link as active */
+    .nav-links li a.active {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 2px;
+    }
+
+    /* Hero Section with Actual Image */
+    .page-hero {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+    .page-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .page-hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(46, 134, 171, 0.6); /* Semi-transparent overlay using primary color */
+      padding: 2rem;
+      color: #fff;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    .page-hero-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .page-hero-overlay p {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    /* Main Content Container */
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Map Section */
+    .map-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .map-section h2 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .map-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+    }
+
+    /* Facts Section */
+    .facts-section {
+      margin-bottom: 3rem;
+    }
+    .facts-section h2 {
+      color: var(--primary-color);
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .facts-list {
+      list-style: disc inside;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--text-color);
+      line-height: 1.8;
+    }
+    .facts-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer (same style as homepage) */
+    footer {
+      background-color: var(--text-color); /* #333333 */
+      color: var(--accent-color);         /* #F7D684 */
+      text-align: center;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: var(--accent-color);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: #ffdb66;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .page-hero-overlay h1 {
+        font-size: 1.5rem;
+      }
+      .page-hero-overlay p {
+        font-size: 0.9rem;
+      }
+      .facts-list {
+        margin: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Section -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">EXPLORE <span>OSLOB</span></div>
+      <ul class="nav-links">
+        <li><a href="index.htm">Home</a></li>
+        <li><a href="discover.htm" class="active">Discover Oslob</a></li>
+        <li><a href="attractions.htm">Attractions</a></li>
+        <li><a href="culture.htm">Culture &amp; History</a></li>
+        <li><a href="contact.htm">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Actual Image -->
+  <section class="page-hero">
+    <!-- Replace 'discover_hero.jpg' with your actual hero image -->
+    <img src="discover page.jpg" alt="Discover Oslob">
+    <div class="page-hero-overlay">
+      <h1>Discover Oslob</h1>
+      <p>Explore the map and learn fascinating facts about Oslob, Cebu Province.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content">
+    
+    <!-- Map Section -->
+    <section class="map-section">
+      <h2>Detailed Map of OSLOB</h2>
+      <div class="map-container">
+        <!-- Replace the iframe src with a real Google Maps embed link or local map image -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.3705378564163!2d123.42329257408664!3d9.518586692494012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33abff273dbd043b%3A0xeaa7ca4c637aa929!2sOslob%2C%20Cebu!5e0!3m2!1sen!2sph!4v1679999999999!5m2!1sen!2sph"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section class="facts-section">
+      <h2>FACTS ABOUT OSLOB, CEBU PROVINCE</h2>
+      <ul class="facts-list">
+        <li>Oslob is situated in the province of Cebu, in the Central Visayas region of the Philippines.</li>
+        <li>Coordinates: Approximately 9.5200° N latitude and 123.4333° E longitude.</li>
+        <li>The municipality covers an area of about 134.75 square kilometers.</li>
+        <li>Topography: Oslob features a mix of coastal areas, hills, and mountains, with the Tañon Strait to the east.</li>
+        <li>Demographics: Oslob has a population around 29,264.</li>
+        <li>Language: The primary language spoken is Cebuano, but Filipino and English are also understood.</li>
+        <li>Main Industries: Tourism, fishing, and agriculture are the primary economic activities.</li>
+        <li>Whale Sharks: Oslob is known for its whale shark (Butanding) watching activities, which attract local and foreign tourists annually.</li>
+        <li>Transportation: Oslob is accessible by bus or private vehicle from Cebu City, which is about 120 km away (3–4 hours).</li>
+        <li>Port: There is a small port in Oslob that connects to nearby islands.</li>
+        <li>Climate: Oslob experiences a tropical climate with distinct wet (June–December) and dry (January–May) seasons.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.htm">Home</a>
+      <a href="discover.htm">Discover Oslob</a>
+      <a href="attractions.htm">Attractions</a>
+      <a href="culture.htm">Culture &amp; History</a>
+      <a href="contact.htm">Contact</a>
+    </div>
+    <p>© 2023 Oslob Tourism. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
